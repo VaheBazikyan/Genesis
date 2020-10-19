@@ -15,7 +15,7 @@ class Networking: NetworkingProtocol {
                 let dataJson = try JSONDecoder().decode(Items.self, from: data)
                 print(dataJson)
                 DispatchQueue.main.async {
-                handler(dataJson.items)
+                    handler(dataJson.items)
                 }
             }catch let error{
                 print(error)

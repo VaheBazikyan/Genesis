@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     private func setSearchController(){
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "serch"
+        searchController.searchBar.placeholder = "search"
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         definesPresentationContext = true
@@ -56,7 +56,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return model.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as? TableViewCell else {return UITableViewCell()}
         let item = model[indexPath.row]
         cell.textLabel?.text = item.full_name
         if item.isWatch ?? false {
@@ -70,6 +70,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             search()
         }
     }
+   
 }
 
 extension ViewController: UISearchBarDelegate {

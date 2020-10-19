@@ -9,7 +9,11 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
- 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.textLabel?.text = nil
+        self.contentView.backgroundColor = .systemBackground
+    }
         
         
     override func awakeFromNib() {
