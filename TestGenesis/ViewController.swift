@@ -56,7 +56,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return model.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+<<<<<<< HEAD
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as? TableViewCell else {return UITableViewCell()}
+=======
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath)
+>>>>>>> 74cbaf58473394f64e959d6daee579a9f0f1e491
         let item = model[indexPath.row]
         cell.textLabel?.text = item.full_name
         if item.isWatch ?? false {
